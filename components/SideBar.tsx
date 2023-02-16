@@ -1,6 +1,6 @@
 'use client'
 
-import { useSession } from "next-auth/react"
+import { useSession, signOut } from "next-auth/react"
 import NewChat from "./NewChat"
 
 type Props = {
@@ -25,7 +25,11 @@ function SideBar({ session }: Props) {
             {/* Map through chat rows */}
         </div>
         {
-          session && <img src={session.user?.image!} alt='profile' />
+          session && <img src={session.user?.image!} alt='sign out'
+            className="h-12 w-12 rounded-full cursor-pointer mx-auto
+             mb-2 hover:opacity-50 text-white text-xs"
+             onClick={() => signOut()}
+          />
           
         }
     </div>

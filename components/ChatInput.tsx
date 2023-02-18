@@ -76,7 +76,7 @@ function ChatInput({ chatId }: Props) {
              <button 
                 type='submit'
                 disabled={!session || !prompt}
-                className='bg-[#11A37F] hover:opacity-50 text-white font-bold px-4 py-2 rounded disabled:hidden'
+                className='bg-[#11A37F] hover:opacity-50 text-white font-bold px-4 py-2 rounded disabled:cursor-not-allowed disabled:text-gray-500'
             >
                 <PaperAirplaneIcon className='h-4 w-4 -rotate-45' />
              </button>

@@ -49,7 +49,10 @@ function ChatInput({ chatId }: Props) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                prompt: input, chatId, model, session
+                prompt: input, 
+                chatId, 
+                model, 
+                session
             })
         }).then(() => {
             // Toast to say sucessful

@@ -1,5 +1,6 @@
 'use client'
 
+import { ArrowDownCircleIcon } from '@heroicons/react/24/solid'
 import { collection, orderBy, query } from 'firebase/firestore'
 import { useSession } from 'next-auth/react'
 import React from 'react'
@@ -21,6 +22,16 @@ function Chat({ chatId }: Props) {
 
   return (
     <div className='flex-1 overflow-y-auto overflow-x-hidden'>
+      {
+        messages?.empty && (
+          <div className='h-screen flex flex-col items-center justify-center'>
+            <p className="mt-10 text-center text-white">
+              Type your query below to get started
+            </p>
+            <ArrowDownCircleIcon className='h-10 w-10 mx-auto mt-5 text-white animate-bounce' />
+          </div>
+        )
+      }
         {
           messages?.docs.map(message => (
             <Message key={message.id} message={message.data()} />

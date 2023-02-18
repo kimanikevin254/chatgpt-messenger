@@ -6,6 +6,7 @@ import { useCollection } from 'react-firebase-hooks/firestore';
 import { db } from "../firebase";
 import { collection, orderBy, query } from "firebase/firestore";
 import ChatRow from "./ChatRow";
+import ModelSelection from "./ModelSelection";
 
 type Props = {
   session: any
@@ -25,16 +26,26 @@ function SideBar({ session }: Props) {
                 <NewChat />
             </div>
 
-            <div>
+            <div className="hidden sm:inline">
                 {/* Model selection */}
+              <ModelSelection />
             </div>
 
-            {/* Map through chat rows */}
+            <div>
+              {
+                loading && (
+                  <div className="animate-pulse text-center text-white">
+                      Loading...
+                  </div>
+                )
+              }
+              {/* Map through chat rows */}
             {
               chats?.docs.map(chat => (
                 <ChatRow key={chat.id} id={chat.id} />
               ))
             }
+            </div>
         </div>
         {
           session && <img src={session.user?.image!} alt='sign out'

@@ -10,7 +10,7 @@ import ModelSelection from './ModelSelection'
 import useSWR from 'swr'
 
 type Props = {
-    chatId: String
+    chatId: string
 }
 
 function ChatInput({ chatId }: Props) {

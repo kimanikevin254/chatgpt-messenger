@@ -3,7 +3,7 @@ import ChatInput from "../../../components/ChatInput"
 
 type Props = {
     params : {
-        id: String
+        id: string
     }
 }
 

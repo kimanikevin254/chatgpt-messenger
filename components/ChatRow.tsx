@@ -9,7 +9,7 @@ import { useCollection } from "react-firebase-hooks/firestore"
 import { db } from "../firebase"
 
 type Props = {
-    id: String
+    id: string
 }
 function ChatRow({ id }: Props) {
     const pathName = usePathname()
